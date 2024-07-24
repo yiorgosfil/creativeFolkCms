@@ -1,9 +1,9 @@
 For creating a standard template for commit messages, use the structure below:
-
+```
 <type>: <short summary>
 <detailed description>
 <additional notes, if any>
-
+```
 Where `<type>` could be:
 
 - `add`: for new features or files
