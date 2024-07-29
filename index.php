@@ -1,5 +1,6 @@
 <?php
-// declare(strict_types=1);
+
+declare(strict_types=1);
 require 'includes/database-connection.php';
 require 'includes/functions.php';
 
@@ -26,38 +27,24 @@ $section = '';
 $title = 'Creative Folk';
 $description = 'A collective of creatives for hire';
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<?php include 'includes/header.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?= html_escape($title) ?></title>
-    <meta name="description" content="<?= html_escape($description) ?>">
-    <?php include 'includes/header.php'; ?>
-</head>
-
-<body>
-    <main class="container grid" id="content">
-        <?php foreach ($articles as $article): ?>
-            <article class="summary">
-                <a href="article.php?id=<?= $article['id'] ?>">
-                    <img src="uploads/<?= html_escape($article['image_file'] ?? 'blank.png') ?>"
-                        alt="<?= html_escape($article['image_alt']) ?>">
-                    <h2><?= html_escape($article['title']) ?></h2>
-                    <p><?= html_escape($article['summary']) ?></p>
-                </a>
-                <p class="credit">
-                    Posted in <a href="category.php?id=<?= $article['category_id'] ?>">
-                        <?= html_escape($article['category']) ?></a>
-                    By <a href="member.php?id=<?= $article['member_id'] ?>">
-                        <?= html_escape($article['author']) ?></a>
-                </p>
-            </article>
-        <?php endforeach; ?>
-    </main>
-    <?php include 'includes/footer.php'; ?>
-</body>
-
-</html>
+<main class="container grid" id="content">
+    <?php foreach ($articles as $article) { ?>
+        <article class="summary">
+            <a href="article.php?id=<?= $article['id'] ?>">
+                <img src="uploads/<?= html_escape($article['image_file'] ?? 'blank.png') ?>"
+                    alt="<?= html_escape($article['image_alt']) ?>">
+                <h2><?= html_escape($article['title']) ?></h2>
+                <p><?= html_escape($article['summary']) ?></p>
+            </a>
+            <p class="credit">
+                Posted in <a href="category.php?id=<?= $article['category_id'] ?>">
+                    <?= html_escape($article['category']) ?></a>
+                by <a href="member.php?id=<?= $article['member_id'] ?>">
+                    <?= html_escape($article['author']) ?></a>
+            </p>
+        </article>
+    <?php }; ?>
+</main>
+<?php include 'includes/footer.php'; ?>
