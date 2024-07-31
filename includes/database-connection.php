@@ -15,9 +15,9 @@ $options = [
 ];
 
 // DON'T change below this line
-$dsn = "$type:host=$server;dbname=$db;port=$port;charset=$charset"; // Create DSN string (Data Source Name) which specifies the details of the db connection
-try {
-    $pdo = new PDO($dsn, $username, $password, $options);           // Create PDO object
-} catch (PDOException $e) {                                         // If exception thrown
-    throw new PDOException($e->getMessage(), $e->getCode());        // Re-throw exception
-}
+// $dsn = "$type:host=$server;dbname=$db;port=$port;charset=$charset"; // Create DSN string (Data Source Name) which specifies the details of the db connection
+// try {
+//     $pdo = new PDO($dsn, $username, $password, $options);           // Create PDO object
+// } catch (PDOException $e) {                                         // If exception thrown
+//     throw new PDOException($e->getMessage(), $e->getCode());        // Re-throw exception
+// }
